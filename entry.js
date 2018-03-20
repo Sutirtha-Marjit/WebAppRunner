@@ -1,3 +1,9 @@
 const Application = require('./util/application');
-var app = Application.getAnInstance();
-app.start();
+const express = require("express");
+const app = express();
+const port = 9090;
+Application(express,app,port);
+
+
+
+

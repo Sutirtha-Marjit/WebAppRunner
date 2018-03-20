@@ -1,0 +1,25 @@
+{
+  "name": "webapprunner",
+  "version": "1.0.0",
+  "description": "webapprunner",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sutirtha-Marjit/WebAppRunner.git"
+  },
+  "keywords": [
+    "webapprunner"
+  ],
+  "author": "sutirtha.social.marjit@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sutirtha-Marjit/WebAppRunner/issues"
+  },
+  "homepage": "https://github.com/Sutirtha-Marjit/WebAppRunner#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
