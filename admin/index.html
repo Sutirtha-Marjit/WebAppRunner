@@ -3,14 +3,39 @@
     <head>
         <title>Admin</title>
     </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <body>
-    <form name="">
-        <div class="form-group">
-            <input class="form-control" name="folder-name"/>
+    <div class="container">
+        <div class="col-md-4">
+        <br/>
+        <h2>Upload Project</h2>
+        <hr/>
+        <div class="form-upload">
+            <form name="">
+                <div class="form-group">
+                    <input placeholder="zipfile" class="form-control" type="file" name="zipfile"/>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Project name" class="form-control" type="text" name="projectname"/>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Project type" class="form-control" type="text" name="projecttype"/>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-block btn-dark" href="#">Upload</a>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+</div>
+<script>
+    function upload(){
+        let postData = new FormData();
+        postData.append("name",)
+    }
+</script>
 </body>
 </html>

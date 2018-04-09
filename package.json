@@ -4,6 +4,7 @@
   "description": "webapprunner",
   "main": "entry.js",
   "scripts": {
+    "start": "node entry.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/Sutirtha-Marjit/WebAppRunner#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3"
   }
 }
