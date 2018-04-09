@@ -1,9 +1,7 @@
 class MasterService{
 
     constructor(){
-        this.serviceDetailsObj = {
-            
-        };
+        this.serviceEngineInitTime = new Date();
     }
 
 }
