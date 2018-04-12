@@ -25,16 +25,19 @@
                     <input placeholder="Project type" class="form-control" type="text" name="projecttype"/>
                 </div>
                 <div class="form-group">
-                    <a class="btn btn-block btn-dark" href="#">Upload</a>
+                    <a id="test" class="btn btn-block btn-dark" href="#">Upload</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script>
+    $('#test').on('click',function(){
+        upload();
+    });
     function upload(){
         let postData = new FormData();
-        postData.append("name",)
+        postData.append("name",);
     }
 </script>
 </body>
