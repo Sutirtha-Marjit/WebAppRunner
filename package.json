@@ -4,7 +4,7 @@
   "description": "webapprunner",
   "main": "entry.js",
   "scripts": {
-    "start": "node entry.js",
+    "start": "nodemon entry.js",
     "start:smart": "nodemon entry.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Sutirtha-Marjit/WebAppRunner#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
   }
 }

@@ -1,1 +1,23 @@
-HELLO!!!
+<!doctype>
+<html>
+    <head>
+        <title>WebAppRunner 1.0</title>
+        <meta name="keywords" value=""/>
+    </head>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism-dark.min.css" type="text/css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.2.0/codeflask.min.css" type="text/css" rel="stylesheet"/> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.1.1/codeflask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"></script>
+
+    <body>
+            <div id="my-code-wrapper" data-language="javascript">
+                var a = 10;
+            </div>
+            
+            <script>
+              var flask = new CodeFlask();
+              flask.run('#my-code-wrapper', { language: 'javascript', lineNumbers: true })
+            </script>
+    </body>
+</html>
