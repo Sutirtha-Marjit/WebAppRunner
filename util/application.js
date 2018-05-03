@@ -30,7 +30,7 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
     
     
     
-    app.listen(port,()=>{
+    app.listen(port || process.env.PORT,()=>{
         console.log('Server is running at '+port);
     });
     
