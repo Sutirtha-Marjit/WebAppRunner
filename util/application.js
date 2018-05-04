@@ -6,7 +6,7 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
     const R = require('./routepath');
     let urlencodedParser = bodyParser.urlencoded({ extended: false });
     const dbconnect = new DBConnect(R.DBURI);
-    app.use(express.static('front-end'));
+    app.use('/',express.static('front-end'));
     app.use(R.ADMIN,express.static('admin'));
     app.use('/app',express.static('application-sites'));
 
