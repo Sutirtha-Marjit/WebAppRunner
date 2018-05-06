@@ -2,6 +2,7 @@ const DBConnect = require('./dbconnect');
 
 module.exports = (express,app,port,bodyParser,MasterService)=>{
 
+    const currentPort  = process.env.PORT;
     const service = new MasterService();
     const R = require('./routepath');
     let urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -29,8 +30,8 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
     });
     
     
-    
-    app.listen(process.env.PORT,()=>{
+    port = currentPort || port;
+    app.listen(port,()=>{
         console.log('Server is running at '+port);
     });
     
