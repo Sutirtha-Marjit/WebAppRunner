@@ -16,19 +16,6 @@ class DBConnect{
       const dburi = `mongodb://${username}@ds163689.mlab.com:63689/dbwebapprunner`;
       var dbconnected=false;
       
-      let cr_user = new User({
-            userid:"xdtopa09091",
-            persona:{
-                name:"Mr X",
-                dob:new Date('09/09/1980')
-            },
-            auth:{
-                username:'sutirtha.marjit@gmail.com',
-                passcode:'LXT45@123'
-            }
-      });
-      
-      //console.dir(cr_user);
       /*
       this.conn = mongoose.createConnection(dburi);
       if(this.conn){
@@ -49,6 +36,20 @@ class DBConnect{
       
     }
 
+    getEmptyUser(){
+        return {
+            userid:this.getRandomUserId(),
+            persona:{
+                name:"",
+                dob:new Date()
+            },
+            auth:{
+                username:"",
+                passcode:""
+            }
+        };
+    }
+
     getRandomUserId(){
         
         return `${Math.random()}`.replace('0.','WBAPPR');
@@ -56,21 +57,27 @@ class DBConnect{
 
     saveUser(postedUser,onOperationDone){
             
-            let userid = this.getRandomUserId();
+            let crUserData = this.getEmptyUser();
+            crUserData.userid = postedUser.userid || crUserData.userid;
+            crUserData.persona.name = postedUser.name || "";
+            crUserData.persona.dob = new Date(postedUser.dob) || crUserData.persona.dob;
+            crUserData.auth.username = postedUser.username || crUserData.auth.username;
+            crUserData.auth.passcode = postedUser.passcode || crUserData.auth.passcode;
 
-            /*let currentUser = new User({
-                userid:this.getRandomUserId()
-            });*/
+            let crUser = new User(crUserData);
 
-            onOperationDone({user:userid});
-            /*
-            cr_user.save().then(()=>{
-                console.log('Saved successfully');
+            crUser.save().then(()=>{
+                console.log('User saved successfully');
+                onOperationDone({success:true,details:crUserData});
+
             }).catch((error)=>{
                 console.log('Error occured while saving data MLab');
                 console.dir(error);
+                onOperationDone({success:false,errorDetails:error});
             });
-          */
+
+            
+            
     }
 
 }  
