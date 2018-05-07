@@ -14,6 +14,7 @@ class DBConnect{
       const password = "admin";
       const dburiWithPassValue = `mongodb://${username}:${password}@ds163689.mlab.com:63689/dbwebapprunner`;
       const dburi = `mongodb://${username}@ds163689.mlab.com:63689/dbwebapprunner`;
+      var dbconnected=false;
       
       let cr_user = new User({
             userid:"xdtopa09091",
@@ -34,18 +35,11 @@ class DBConnect{
           console.log(`Great! Connection established with ${dburi}`);
       }*/
       
-      var saveUser = ()=>{
-        cr_user.save().then(()=>{
-            console.log('Saved successfully');
-        }).catch((error)=>{
-            console.log('Error occured while saving data MLab');
-            console.dir(error);
-        });
-      }
 
       mongoose.connect(dburiWithPassValue).then(()=>{
           console.log(`Great! Connection established with ${dburiWithPassValue}`);
-          saveUser();
+          dbconnected = true;
+          
           
           }).catch((error)=>{
           console.log("Error occured while saving the data");
@@ -53,6 +47,30 @@ class DBConnect{
      
       
       
+    }
+
+    getRandomUserId(){
+        
+        return `${Math.random()}`.replace('0.','WBAPPR');
+    }
+
+    saveUser(postedUser,onOperationDone){
+            
+            let userid = this.getRandomUserId();
+
+            /*let currentUser = new User({
+                userid:this.getRandomUserId()
+            });*/
+
+            onOperationDone({user:userid});
+            /*
+            cr_user.save().then(()=>{
+                console.log('Saved successfully');
+            }).catch((error)=>{
+                console.log('Error occured while saving data MLab');
+                console.dir(error);
+            });
+          */
     }
 
 }  

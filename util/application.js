@@ -28,6 +28,13 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
         const output = service.createFolder();
         res.json(output);
     });
+
+    app.post(R.REGISTER,urlencodedParser,(req,res)=>{
+        dbconnect.saveUser(req.body,(data)=>{
+            res.json(data);
+        });
+        
+    });
     
     
     port = currentPort || port;
