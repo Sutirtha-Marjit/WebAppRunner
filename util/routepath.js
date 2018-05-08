@@ -6,6 +6,8 @@ module.exports = {
     ADMIN:'/admin',
     CREATE_FOLDER:`${sc}createfolder`,
     DESTROY_ALL_FOLDER:`${sc}destroyfolders/massivecollapse/:id`,
+    GETRESOURCES:`${sc}${post}users/`,
+    FILEUPLOAD:`${sc}${post}fileupload/`,
     REGISTER:`${sc}${post}register`
 
 }

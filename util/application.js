@@ -1,12 +1,14 @@
 const DBConnect = require('./dbconnect');
 
-module.exports = (express,app,port,bodyParser,MasterService)=>{
+
+module.exports = (express,app,port,bodyParser,MasterService,fileUpload)=>{
 
     const currentPort  = process.env.PORT;
     const service = new MasterService();
     const R = require('./routepath');
     let urlencodedParser = bodyParser.urlencoded({ extended: false });
     const dbconnect = new DBConnect(R.DBURI);
+    app.use(fileUpload());
     app.use('/',express.static('front-end'));
     app.use(R.ADMIN,express.static('admin'));
     app.use('/app',express.static('application-sites'));
@@ -27,6 +29,23 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
     app.get(R.CREATE_FOLDER,(req,res)=>{
         const output = service.createFolder();
         res.json(output);
+    });
+
+    app.post(R.FILEUPLOAD,(req,res)=>{
+        if(req.files){
+            let zipfile = req.files.file;
+            //zipfile.mv('/application-sites/')
+            res.json({error:2});
+        }else{
+            res.json({error:1});
+        }
+        
+    });
+
+    app.post(R.GETRESOURCES,urlencodedParser,(req,res)=>{
+        dbconnect.searchUser({'persona.dob':'1980-11-19T18:30:00.000Z'},(data)=>{
+            res.json(data);
+        })
     });
 
     app.post(R.REGISTER,urlencodedParser,(req,res)=>{

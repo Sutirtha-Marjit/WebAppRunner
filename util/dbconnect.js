@@ -50,9 +50,18 @@ class DBConnect{
         };
     }
 
-    getRandomUserId(){
-        
+    getRandomUserId(){        
         return `${Math.random()}`.replace('0.','WBAPPR');
+    }
+
+    searchUser(searchCriteria,onOperationDone){
+        User.find(searchCriteria,(error,docs)=>{
+            if(error){
+                onOperationDone({success:false,errorDetails:error});
+            }else{
+                onOperationDone({success:true,data:docs})
+            }
+        })
     }
 
     saveUser(postedUser,onOperationDone){
