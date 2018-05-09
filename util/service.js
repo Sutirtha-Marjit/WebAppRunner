@@ -13,7 +13,30 @@ class MasterService{
 
         const alpha = String.fromCharCode(65+this.getRandomInt(1,26));
         
-        return `${alpha}A${parseInt(Math.random()*1000*this.getRandomInt(10,90))}${(new Date()).getTime()}`;
+        return `${alpha}A${parseInt(Math.random()*1000*this.getRandomInt(10,90))}-${(new Date()).getTime()}`;
+    }
+
+    placeZipFile(file,dest,onOperationComplete){
+        file.mv(dest).then(()=>{
+            onOperationComplete({
+                success:true,
+                details:"File copied to "+dest
+            });
+        }).catch((error)=>{
+            onOperationComplete({
+                success:false,
+                details:error
+            });
+        })
+    }
+
+    getFileUploadErrorObject(text){
+        return {
+            success:false,
+            errorDetails:{
+                details:`File upload is in trouble:${text}`
+            }
+        }
     }
 
     superCleanUp(){

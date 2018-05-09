@@ -46,7 +46,8 @@ class DBConnect{
             auth:{
                 username:"",
                 passcode:""
-            }
+            },
+            projects:[]
         };
     }
 
@@ -64,12 +65,18 @@ class DBConnect{
         })
     }
 
+    createNewProject(WBAPPRID,postedProjectDetail,onOperationDone){
+
+    }
+
     saveUser(postedUser,onOperationDone){
             
-            let crUserData = this.getEmptyUser();
+            let crDOB,crUserData = this.getEmptyUser();
             crUserData.userid = postedUser.userid || crUserData.userid;
             crUserData.persona.name = postedUser.name || "";
-            crUserData.persona.dob = new Date(postedUser.dob) || crUserData.persona.dob;
+            crDOB = postedUser.dob || crUserData.persona.dob;      
+
+            crUserData.persona.dob = new Date(crDOB);
             crUserData.auth.username = postedUser.username || crUserData.auth.username;
             crUserData.auth.passcode = postedUser.passcode || crUserData.auth.passcode;
 
