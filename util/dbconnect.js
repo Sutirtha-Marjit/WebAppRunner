@@ -41,12 +41,21 @@ class DBConnect{
             userid:this.getRandomUserId(),
             persona:{
                 name:"",
-                dob:new Date()
+                dob:new Date(),
+                email:"",
+                phone:"",
+                city:"",
+                country:""
+            },
+            OTP:{
+                value:0,
+                expire:0
             },
             auth:{
                 username:"",
                 passcode:""
             },
+            notes:[],
             projects:[]
         };
     }

@@ -2,7 +2,13 @@ const fs = require('fs');
 class MasterService{
 
     constructor(){
+      this.APPLICATION_HOST_DIR = 'application-sites';  
       this.serviceEngineInitTime = new Date();
+
+      if(!fs.existsSync(this.APPLICATION_HOST_DIR)){
+            console.log('no host directory is there');
+            fs.mkdirSync(this.APPLICATION_HOST_DIR);
+      }
     }
 
     getRandomInt(min, max) {
@@ -11,9 +17,9 @@ class MasterService{
 
     getFolderName(){
 
-        const alpha = String.fromCharCode(65+this.getRandomInt(1,26));
-        
-        return `${alpha}A${parseInt(Math.random()*1000*this.getRandomInt(10,90))}-${(new Date()).getTime()}`;
+        const alpha = String.fromCharCode(65+this.getRandomInt(1,20));
+        const beta = String.fromCharCode(65+this.getRandomInt(1,20));
+        return `${alpha}0${beta}A${parseInt(Math.random()*1000*this.getRandomInt(10,90))}-${(new Date()).getTime()}`;
     }
 
     placeZipFile(file,dest,onOperationComplete){
@@ -44,7 +50,8 @@ class MasterService{
     }
 
     createFolder(){        
-        var folderName = `application-sites/${this.getFolderName()}`  
+        
+        var folderName = `${this.APPLICATION_HOST_DIR}/${this.getFolderName()}`  
         var output = {
             folderName:null,
             status:false
@@ -57,7 +64,7 @@ class MasterService{
              return output;
                 
             }catch(e){
-                console.log(e);
+                console.log('It might be possible that the '+folderName+' is not available');
                 return output; 
             }
             
