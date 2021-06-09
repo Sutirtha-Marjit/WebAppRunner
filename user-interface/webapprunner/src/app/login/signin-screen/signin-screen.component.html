@@ -1,0 +1,34 @@
+<div class="login-backdrop"></div>
+<div class="login-container">
+<mat-card class="login-wrap" color="primary">
+    <mat-card-header color="primary">
+        <mat-card-title color="primary">Signin</mat-card-title>
+        <mat-card-subtitle>If you are admin press the toggle</mat-card-subtitle>
+        
+    </mat-card-header>
+    <mat-card-content>
+        <mat-divider></mat-divider>
+        <br/>
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="'primary'"
+          [checked]="false"
+          [disabled]="false">
+          I am Admin!
+      </mat-slide-toggle>
+        <br/><br/>
+        <mat-divider></mat-divider>
+        <br/>
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input name="41ghd8asd" matInput placeholder="Your email"/>
+        </mat-form-field>        
+        <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input name="778uc8ad" type="password" matInput placeholder="Your password"/>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Signin</button>
+    </mat-card-content>
+    
+</mat-card>
+</div>

@@ -2,9 +2,6 @@ module.exports = (express,app,port,bodyParser,MasterService)=>{
 
     const service = new MasterService();
     let urlencodedParser = bodyParser.urlencoded({ extended: false });
-    app.use(express.static('front-end'));
-    app.use('/admin',express.static('admin'));
-    app.use('/app',express.static('application-sites'));
     app.get('/services/get/:id',(req,res)=>{
         res.type('json');
         res.json({status:"ok",body:req.params.id});
